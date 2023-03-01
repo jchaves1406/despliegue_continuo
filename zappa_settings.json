@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "app_function": "apps.f",
+        "keep_warm": false,
+        "role_name": "LabRole",
+        "manage_roles": false,
+        "apigateway_enabled": false,
+        "profile_name": "default",
+        "project_name": "zappa",
+        "runtime": "python3.9",
+        "s3_bucket": "zappa-0xmhi7zxb",
+        "aws_region": "us-east-1",
+        "events": [{
+            "function": "apps.f",
+            "event_source": {
+                  "arn":  "arn:aws:s3:::mybucket1406",
+                  "events": [
+                    "s3:ObjectCreated:*"
+                  ]
+               }
+            }]
+    }
+}
