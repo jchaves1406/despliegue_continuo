@@ -73,5 +73,6 @@ jobs:
 
           zappa deploy --all
           zappa invoke dev1 lambda_html.lambda_handler
+          zappa invoke dev2 lambda_csv.lambda_handler
           ls
 
