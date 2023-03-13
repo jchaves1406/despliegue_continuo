@@ -6,7 +6,7 @@ from web_sc_functions import descargar_pagina
 s3 = boto3.client('s3')
 
 
-def lambda_handler():
+def lambda_handler(event, context):
     url = '''https://casas.mitula.com.co/searchRE/orden-0/op-1/q-chapinero-
              bogota/pag-1?req_sgmt=REVTS1RPUDtVU0VSX1NFQVJDSDtTRVJQOw=='''
 
@@ -23,6 +23,3 @@ def lambda_handler():
         'statusCode': 200,
         'body': 'El archivo ' + file_name + ' se guardo con exito'
     }
-
-
-lambda_handler()
