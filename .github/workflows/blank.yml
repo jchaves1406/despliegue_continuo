@@ -29,11 +29,12 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: create virtualenv and activate virtualenv
+      - name: crear entorno virtual y dependencias
         run: |
           pip install virtualenv
           virtualenv -p=python3.8 env
           source env/bin/activate
+          pip install -r requeriments.txt
           pwd
 
       - name: Verificación de sintaxis y estilo del código adecuado en Python
@@ -62,7 +63,7 @@ jobs:
         run: |
           pip install zappa
           source env/bin/activate
-          pip install -r requeriments.txt
+
 
           zappa deploy --all
           zappa invoke dev1 lambda_html.lambda_handler
