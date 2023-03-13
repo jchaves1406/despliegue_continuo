@@ -35,11 +35,7 @@ jobs:
           virtualenv -p=python3.8 env
           source env/bin/activate
           pwd
-         
-      - name: Instalacion de dependencias necesarias en Python
-        run: |
-          pip install -r requeriments.txt
-          
+
       - name: Verificación de sintaxis y estilo del código adecuado en Python
         run: |
           flake8 web_sc_functions.py
@@ -66,7 +62,7 @@ jobs:
         run: |
           pip install zappa
           source env/bin/activate
-          pip install beautifulsoup4
+          pip install -r requeriments.txt
 
           zappa deploy --all
           zappa invoke dev1 lambda_html.lambda_handler
