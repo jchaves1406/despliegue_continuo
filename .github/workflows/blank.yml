@@ -65,11 +65,9 @@ jobs:
       - name: Ejecucion de la aplicación
         run: |
           pip install zappa
-          source env/bin/activate   
+          source env/bin/activate
+          pip install beautifulsoup4
 
-          pwd
-          ls
-          
           zappa deploy --all
           zappa invoke dev1 lambda_html.lambda_handler
           ls
