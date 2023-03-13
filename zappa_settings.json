@@ -1,0 +1,43 @@
+ {
+    "dev1": {
+        "app_function": "lambda_html.lambda_handler",
+        "keep_warm": false,
+        "role_name": "LabRole",
+        "manage_roles": false,
+        "apigateway_enabled": false,
+        "project_name": "zappa",
+        "runtime": "python3.8",
+        "s3_bucket": "landing-casas-xxx",
+        "aws_region": "us-east-1",
+        "events": [
+            {
+                "function": "lambda_html.lambda_handler",
+                "expression": "cron(0 9 * * ? *)"
+            }
+        ],
+        "environment_variables": {
+            "BUCKET_NAME": "casas-final-xxx"
+        },
+        "slim_handler": true
+    },
+    "dev2": {
+        "app_function": "lambda_csv.lambda_handler",
+        "keep_warm": false,
+        "role_name": "LabRole",
+        "manage_roles": false,
+        "apigateway_enabled": false,
+        "project_name": "zappa",
+        "runtime": "python3.8",
+        "s3_bucket": "casas-final-xxx",
+        "aws_region": "us-east-1",
+        "events": [
+            {
+                "function": "lambda_csv.lambda_handler",
+                "event_source": {
+                    "arn": "arn:aws:s3:::landing-casas-xxx",
+                    "events": ["s3:ObjectCreated:*"]
+                }
+            }
+        ]
+    }
+}
