@@ -73,6 +73,10 @@ jobs:
 
           zappa deploy --all
           zappa invoke dev1 lambda_html.lambda_handler
-          zappa invoke dev2 lambda_csv.lambda_handler
           ls
+          
+      - name: Resultado del archivo csv guardado en el bucket casas-final-xxx
+        run: |
+          aws s3api get-object --bucket casas-final-xxx --key 2023-03-13.csv /dev/stdout
+
 
