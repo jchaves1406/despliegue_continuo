@@ -32,7 +32,7 @@ jobs:
       - name: create virtualenv and activate virtualenv
         run: |
           pip install virtualenv
-          virtualenv -p=python3.9 env
+          virtualenv -p=python3.8 env
           source env/bin/activate
           pwd
          
